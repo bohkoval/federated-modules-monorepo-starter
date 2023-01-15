@@ -1,0 +1,35 @@
+default:
+  image: node:18-alpine
+  before_script:
+    # install pnpm
+    - wget -qO /bin/pnpm "https://github.com/pnpm/pnpm/releases/latest/download/pnpm-linuxstatic-x64" && chmod +x /bin/pnpm
+    - pnpm config set store-dir .pnpm-store
+  cache:
+    key:
+      files:
+        - pnpm-lock.yaml
+    paths:
+      - .pnpm-store
+
+stages:
+  - build
+  - lint
+  - test
+
+build:
+  stage: build
+  script:
+    - pnpm install
+    - pnpm build
+
+lint:
+  stage: lint
+  script:
+    - pnpm install
+    - pnpm lint
+
+test:
+  stage: test
+  script:
+    - pnpm install
+    - pnpm test

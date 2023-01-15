@@ -48,6 +48,6 @@ The app in general (and each separate sub-app in particular) are built on top of
 
 - `app/app1`: Example of some React MFE app
 - `app/app2`: Another example of some React MFE app, which has some shared components with app1
-- `app/shell`: Container React app, which places and orchestrates React MFEs (app1 and app2) 
-- `app/components`: package with shared components (buttons, fields, etc.), which are used by the apps
-- `app/config`: package with shared configs for the used tools (ts, eslint, webpack, babel, etc.)
+- `app/shell`: Container React app, which places and orchestrates React MFEs (app1 and app2)
+- `packages/components`: package with shared components (buttons, fields, etc.), which are used by the apps
+- `packages/@config`: package with shared configs for the used tools (ts, eslint, webpack, babel, etc.)
