@@ -15,10 +15,12 @@
     "test": "turbo test",
     "test:coverage": "turbo test:coverage",
     "test:watch": "turbo test:watch",
-    "format": "prettier --write"
+    "format": "prettier --config ./.prettierrc.json --write ."
   },
   "devDependencies": {
     "@config/eslint-config": "workspace:*",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
     "prettier": "^2.8.3",
     "turbo": "^1.7.0"
   },
@@ -26,6 +28,5 @@
     "node": ">=14.0.0",
     "pnpm": ">=7.25.0"
   },
-  "dependencies": {},
   "packageManager": "pnpm@7.25.0"
 }

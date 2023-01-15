@@ -1,20 +1,11 @@
 {
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "build",
-    "dist",
-    "coverage",
-    "node_modules"
-  ],
+  "include": ["src/**/*"],
+  "exclude": ["build", "dist", "coverage", "node_modules"],
   "extends": "@config/tsconfig",
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "@/*": [
-        "*"
-      ]
+      "@/*": ["*"]
     }
   }
 }
