@@ -36,3 +36,18 @@ const appsModuleFederationConfig: AppsModuleFederationConfig = {
 
 export const getAppModuleFederationConfig = (appName: Apps): AppModuleFederationConfig =>
   appsModuleFederationConfig[appName];
+
+export const getDtsModuleConfig = (appName: Apps) => ({
+  test: /\.tsx?$/,
+  exclude: /node_modules/,
+  use: [
+    {
+      loader: 'dts-loader',
+      options: {
+        name: getAppModuleFederationConfig(appName).baseConfig.name,
+        exposes: getAppModuleFederationConfig(appName).baseConfig.exposes,
+        typesOutputDir: '.wp_federation',
+      },
+    },
+  ],
+});

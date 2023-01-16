@@ -3,9 +3,10 @@
   "exclude": ["build", "dist", "coverage", "node_modules"],
   "extends": "@config/tsconfig",
   "compilerOptions": {
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["*"]
+      "@/*": ["src/*"],
+      "shared/*": ["../../packages/shared/.wp_federation/shared/*"]
     }
   }
 }

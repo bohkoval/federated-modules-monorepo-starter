@@ -1,7 +1,8 @@
+import { StyledComponent } from '@emotion/styled';
 import { styled } from '@mui/material/styles';
-import MuiButton from '@mui/material/Button';
+import MuiButton, { ButtonProps } from '@mui/material/Button';
 
-const Button = styled(MuiButton)({
+const Button: StyledComponent<ButtonProps> = styled(MuiButton)({
   boxShadow: 'none',
   textTransform: 'none',
   fontSize: 16,

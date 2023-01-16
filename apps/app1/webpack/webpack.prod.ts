@@ -4,10 +4,10 @@ import { Apps } from '@config/webpack-config/enums';
 import { getAppModuleFederationConfig } from '@config/webpack-config/module-federation';
 import getProdCommonConfig from '@config/webpack-config/webpack.prod';
 
-import { getCommonModuleFederationConfig } from './webpack.common';
+import getCommonConfig, { getCommonModuleFederationConfig } from './webpack.common';
 
 const getProdConfig = (env: Record<string, string | boolean>): webpack.Configuration =>
-  merge(getProdCommonConfig(env), {
+  merge(getProdCommonConfig(env), getCommonConfig(), {
     plugins: [
       new webpack.container.ModuleFederationPlugin({
         ...getCommonModuleFederationConfig(),

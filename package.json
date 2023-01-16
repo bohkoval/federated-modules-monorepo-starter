@@ -18,7 +18,7 @@
     "test:coverage": "turbo test:coverage",
     "test:watch": "turbo test:watch",
     "format": "prettier --config ./.prettierrc.json --write .",
-    "clean:pnpm": "rimraf apps/*/node_modules packages/*/node_modules pnpm-lock.yaml node_modules"
+    "clean": "rimraf apps/*/node_modules packages/*/node_modules pnpm-lock.yaml node_modules"
   },
   "devDependencies": {
     "@config/eslint-config": "workspace:*",
