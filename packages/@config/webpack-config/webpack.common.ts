@@ -4,7 +4,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 
 const getCommonConfig = (): webpack.Configuration => ({
-  entry: './src/index',
+  entry: './src/main',
   output: {
     path: path.join(process.cwd(), 'dist'),
     chunkFilename: '[id].[contenthash].js',

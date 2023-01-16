@@ -1,6 +1,5 @@
 import { MemoryRouter } from 'react-router-dom';
 import { render } from '@testing-library/react';
-
 import Page1 from './Page1';
 
 describe('<Page1 />', () => {

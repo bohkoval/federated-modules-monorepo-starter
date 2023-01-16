@@ -1,1 +1,1 @@
-export * from './transformations/transformations';
+export * as transformations from './transformations/transformations';
