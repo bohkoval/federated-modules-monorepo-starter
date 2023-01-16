@@ -4,8 +4,6 @@
   "extends": "@config/tsconfig",
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    }
+    "paths": {}
   }
 }

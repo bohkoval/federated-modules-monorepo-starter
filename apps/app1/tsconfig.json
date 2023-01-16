@@ -5,7 +5,6 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
       "shared/*": ["../../packages/shared/.wp_federation/shared/*"]
     }
   }

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
-import { Button, InputWithLabel, MemeImage } from '@/components';
-import { swapObjectKeyValue } from '@/utils';
+import { Button, InputWithLabel, MemeImage } from './components';
+import { swapObjectKeyValue } from './utils';
 
 const App: React.FC = () => {
   const obj = { a: 'x', b: 'y', c: 'z' };

@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from '@/assets/images/meme.jpg';
+import Image from '../../assets/images/meme.jpg';
 
 const MemeImage: React.FC = () => (
   <div>

@@ -5,7 +5,7 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Button from 'shared/components/Button';
 import MemeImage from 'shared/components/MemeImage';
-import Image from '@/assets/images/meme2.jpg';
+import Image from '../../assets/images/meme2.jpg';
 
 const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
