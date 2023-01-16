@@ -1,0 +1,12 @@
+{
+  "include": ["**/*", "package.json"],
+  "exclude": ["build", "dist", "coverage", "node_modules"],
+  "extends": "@config/tsconfig",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "shared/*": ["../../packages/shared/.wp_federation/shared/*"]
+    }
+  }
+}

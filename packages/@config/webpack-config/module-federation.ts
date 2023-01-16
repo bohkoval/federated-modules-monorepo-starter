@@ -33,6 +33,24 @@ const appsModuleFederationConfig: AppsModuleFederationConfig = {
       },
     },
   },
+  [Apps.app2]: {
+    devPort: 3003,
+    baseConfig: {
+      name: 'app2',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './App': './src/App',
+      },
+    },
+    remotes: {
+      dev: {
+        shared: 'shared@http://localhost:3001/remoteEntry.js',
+      },
+      prod: {
+        shared: `shared@http://${process.env.PROD_HOST}/remoteEntry.js`,
+      },
+    },
+  },
 };
 
 export const getAppModuleFederationConfig = (appName: Apps): AppModuleFederationConfig =>

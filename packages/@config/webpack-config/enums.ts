@@ -1,6 +1,7 @@
 export enum Apps {
   shared,
   app1,
+  app2,
 }
 
 export enum SharedModule {
