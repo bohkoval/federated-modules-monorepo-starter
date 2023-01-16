@@ -1,11 +1,10 @@
-const sharedModules = ['react', 'react-dom', 'react-router-dom', '@emotion/react', '@mui/material'];
-
-type SharedModulesConfig = Record<string, { singleton: boolean; requiredVersion: string }>;
+import { SharedModule } from './enums';
+import { SharedModulesConfig } from './types';
 
 export const getSharedModulesConfig = (
   dependencies: Record<string, string>
 ): SharedModulesConfig => {
-  return sharedModules.reduce(
+  return Object.values(SharedModule).reduce(
     (sharedModulesConfig, moduleName) =>
       dependencies[moduleName]
         ? {

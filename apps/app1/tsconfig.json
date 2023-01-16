@@ -1,11 +1,11 @@
 {
-  "include": ["**/*"],
+  "include": ["**/*", "package.json"],
   "exclude": ["build", "dist", "coverage", "node_modules"],
   "extends": "@config/tsconfig",
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "src",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["*"]
     }
   }
 }

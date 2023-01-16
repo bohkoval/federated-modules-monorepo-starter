@@ -40,6 +40,7 @@ The app in general (and each separate sub-app in particular) are built on top of
 - [Zustand](https://github.com/pmndrs/zustand) (v4+) - as lightweight alternative to redux for client-side state management
 - [React Query](https://github.com/tanstack/query) (v4+) - for async server-side state management
 - [Emotion](https://emotion.sh/docs/introduction) (v11+) - for CSS-in-JS styling approach
+- [Material UI](https://mui.com/material-ui/getting-started/overview/) (v5+) - for customizable UI components
 - [Jest](https://jestjs.io/docs/getting-started) (v29+)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) (v13+)
 - [ESLint](https://eslint.org/docs/latest/) + [Prettier](https://prettier.io/docs/en/index.html) + [lint-staged](https://github.com/okonet/lint-staged) + [husky](https://github.com/typicode/husky) - for code quality and better DevExperience

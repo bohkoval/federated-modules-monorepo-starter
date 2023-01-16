@@ -8,6 +8,7 @@ const getCommonConfig = (): webpack.Configuration => ({
   output: {
     path: path.join(process.cwd(), 'dist'),
     chunkFilename: '[id].[contenthash].js',
+    publicPath: 'auto',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
