@@ -10,7 +10,9 @@
     "strictNullChecks": true,
     "noEmitOnError": true,
     "noUnusedLocals": false,
-    "noUnusedParameters": false
+    "noUnusedParameters": false,
+    "lib": ["es2021", "dom"],
+    "target": "ES5"
   },
   "ts-node": {
     "compilerOptions": {

@@ -21,6 +21,10 @@ build:
   script:
     - pnpm install
     - pnpm build
+  artifacts:
+    paths:
+      - "**/dist"
+      - "**/build"
 
 lint:
   stage: lint

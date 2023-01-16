@@ -1,0 +1,19 @@
+{
+  "name": "@config/webpack-config",
+  "version": "1.0.0",
+  "dependencies": {
+    "@types/node": "^18.11.18",
+    "@types/webpack": "^5.28.0",
+    "@types/webpack-bundle-analyzer": "^4.6.0",
+    "html-webpack-plugin": "^5.5.0",
+    "terser-webpack-plugin": "^5.3.6",
+    "tsconfig-paths-webpack-plugin": "^4.0.0",
+    "webpack": "^5.75.0",
+    "webpack-bundle-analyzer": "^4.7.0",
+    "webpack-dev-server": "^4.11.1",
+    "webpack-merge": "^5.8.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  }
+}

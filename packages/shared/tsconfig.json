@@ -1,5 +1,5 @@
 {
-  "include": ["src/**/*"],
+  "include": ["**/*"],
   "exclude": ["build", "dist", "coverage", "node_modules"],
   "extends": "@config/tsconfig",
   "compilerOptions": {

@@ -1,5 +1,4 @@
 {
-  "editor.foldingImportsByDefault": true,
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
