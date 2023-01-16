@@ -23,8 +23,8 @@ build:
     - pnpm build
   artifacts:
     paths:
-      - "**/dist"
-      - "**/build"
+      - '**/dist'
+      - '**/build'
 
 lint:
   stage: lint
