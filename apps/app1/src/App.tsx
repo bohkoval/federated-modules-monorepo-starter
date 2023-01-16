@@ -1,8 +1,10 @@
 import * as React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
+import Page1 from './pages/page1/Page1';
+import Page2 from './pages/page2/Page2';
 import Button from 'shared/components/Button';
-import InputWithLabel from 'shared/components/InputWithLabel';
 import { swapObjectKeyValue } from 'shared/utils/transformations';
 
 const App: React.FC = () => {
@@ -18,14 +20,16 @@ const App: React.FC = () => {
       <CssBaseline />
       <div>
         <div>
-          <h3>Button</h3>
-          <Button>Button text</Button>
+          <h1>This is the very beginning of app1</h1>
+          <p>And some button below (from shared):</p>
+          <Button>Shared Button app1 root</Button>
         </div>
         <Divider sx={{ marginTop: 2, marginBottom: 2 }} />
-        <div>
-          <h3>Input with label</h3>
-          <InputWithLabel label="Input label" />
-        </div>
+        <Routes>
+          <Route path="page-1" element={<Page1 />} />
+          <Route path="page-2" element={<Page2 />} />
+          <Route path="*" element={<Page2 />} />
+        </Routes>
       </div>
     </>
   );

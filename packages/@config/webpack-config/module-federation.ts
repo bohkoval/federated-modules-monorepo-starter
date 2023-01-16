@@ -10,6 +10,7 @@ const appsModuleFederationConfig: AppsModuleFederationConfig = {
       exposes: {
         './components/Button': './src/components/Button/Button',
         './components/InputWithLabel': './src/components/InputWithLabel/InputWithLabel',
+        './components/MemeImage': './src/components/MemeImage/MemeImage',
         './utils/transformations': './src/utils/transformations/transformations',
       },
     },
