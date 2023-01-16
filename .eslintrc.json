@@ -1,5 +1,6 @@
 {
   "root": true,
   // This tells ESLint to load the config from the package `@config/eslint-config`
-  "extends": ["@config/eslint-config"]
+  "extends": ["@config/eslint-config"],
+  "ignorePatterns": ["dist", "build", "node_modules", "coverage", ".wp_federation"]
 }

@@ -1,5 +1,7 @@
-import { SharedModule } from './enums';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import { SharedModule, Apps } from './enums';
 import { SharedModulesConfig } from './types';
+import { getAppModuleFederationConfig } from './module-federation';
 
 export const getSharedModulesConfig = (
   dependencies: Record<string, string>
@@ -18,3 +20,8 @@ export const getSharedModulesConfig = (
     {} as SharedModulesConfig
   );
 };
+
+export const getBundleAnalyzerPlugin = (appName: Apps) =>
+  new BundleAnalyzerPlugin({
+    analyzerPort: getAppModuleFederationConfig(appName).analyzerPort,
+  });

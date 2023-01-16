@@ -4,6 +4,7 @@ export type SharedModulesConfig = Record<string, { singleton: boolean; requiredV
 
 export type AppModuleFederationConfig = {
   devPort: number;
+  analyzerPort: number;
   baseConfig: {
     name: string;
     filename: string;

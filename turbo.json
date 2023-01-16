@@ -1,6 +1,9 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
+    "analyze": {
+      "persistent": true
+    },
     "build": {
       "dependsOn": ["^build"],
       "env": ["PROD_HOST"],

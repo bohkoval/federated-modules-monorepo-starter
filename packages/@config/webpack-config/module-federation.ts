@@ -4,6 +4,7 @@ import { AppsModuleFederationConfig, AppModuleFederationConfig } from './types';
 const appsModuleFederationConfig: AppsModuleFederationConfig = {
   [Apps.shared]: {
     devPort: 3001,
+    analyzerPort: 4001,
     baseConfig: {
       name: 'shared',
       filename: 'remoteEntry.js',
@@ -17,6 +18,7 @@ const appsModuleFederationConfig: AppsModuleFederationConfig = {
   },
   [Apps.app1]: {
     devPort: 3002,
+    analyzerPort: 4002,
     baseConfig: {
       name: 'app1',
       filename: 'remoteEntry.js',
@@ -35,6 +37,7 @@ const appsModuleFederationConfig: AppsModuleFederationConfig = {
   },
   [Apps.app2]: {
     devPort: 3003,
+    analyzerPort: 4003,
     baseConfig: {
       name: 'app2',
       filename: 'remoteEntry.js',

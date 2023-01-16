@@ -10,6 +10,7 @@
     "packages/@config/*"
   ],
   "scripts": {
+    "analyze": "turbo analyze",
     "build": "turbo build",
     "dev": "turbo dev --parallel",
     "lint": "turbo lint",
