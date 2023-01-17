@@ -13,4 +13,5 @@ export enum SharedModule {
   '@emotion/styled' = '@emotion/styled',
   '@mui/material' = '@mui/material',
   'zustand' = 'zustand',
+  '@tanstack/react-query' = '@tanstack/react-query',
 }
