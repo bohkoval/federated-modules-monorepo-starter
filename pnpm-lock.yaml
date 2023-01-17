@@ -36,6 +36,7 @@ importers:
       '@types/node': ^18.11.18
       '@types/react': ^18.0.26
       '@types/react-dom': ^18.0.10
+      '@types/react-helmet': ^6.1.6
       '@types/webpack': ^5.28.0
       babel-loader: ^9.1.2
       dts-loader: ^0.1.8
@@ -44,6 +45,7 @@ importers:
       jest-environment-jsdom: ^29.3.1
       react: ^18.2.0
       react-dom: ^18.2.0
+      react-helmet: ^6.1.0
       react-router-dom: ^6.6.2
       rimraf: ^4.0.7
       ts-node: ^10.9.1
@@ -58,6 +60,7 @@ importers:
       '@tanstack/react-query': 4.22.0_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      react-helmet: 6.1.0_react@18.2.0
       react-router-dom: 6.6.2_biqbaboplfbrettd7655fr4n2y
     devDependencies:
       '@babel/core': 7.20.12
@@ -72,6 +75,7 @@ importers:
       '@types/node': 18.11.18
       '@types/react': 18.0.26
       '@types/react-dom': 18.0.10
+      '@types/react-helmet': 6.1.6
       '@types/webpack': 5.28.0_webpack-cli@5.0.1
       babel-loader: 9.1.2_la66t7xldg4uecmyawueag5wkm
       dts-loader: 0.1.8
@@ -103,6 +107,7 @@ importers:
       '@types/node': ^18.11.18
       '@types/react': ^18.0.26
       '@types/react-dom': ^18.0.10
+      '@types/react-helmet': ^6.1.6
       '@types/webpack': ^5.28.0
       babel-loader: ^9.1.2
       dts-loader: ^0.1.8
@@ -111,6 +116,7 @@ importers:
       jest-environment-jsdom: ^29.3.1
       react: ^18.2.0
       react-dom: ^18.2.0
+      react-helmet: ^6.1.0
       react-router-dom: ^6.6.2
       rimraf: ^4.0.7
       ts-node: ^10.9.1
@@ -125,6 +131,7 @@ importers:
       '@tanstack/react-query': 4.22.0_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      react-helmet: 6.1.0_react@18.2.0
       react-router-dom: 6.6.2_biqbaboplfbrettd7655fr4n2y
     devDependencies:
       '@babel/core': 7.20.12
@@ -139,6 +146,7 @@ importers:
       '@types/node': 18.11.18
       '@types/react': 18.0.26
       '@types/react-dom': 18.0.10
+      '@types/react-helmet': 6.1.6
       '@types/webpack': 5.28.0_webpack-cli@5.0.1
       babel-loader: 9.1.2_la66t7xldg4uecmyawueag5wkm
       dts-loader: 0.1.8
@@ -170,6 +178,7 @@ importers:
       '@types/node': ^18.11.18
       '@types/react': ^18.0.26
       '@types/react-dom': ^18.0.10
+      '@types/react-helmet': ^6.1.6
       '@types/webpack': ^5.28.0
       babel-loader: ^9.1.2
       dts-loader: ^0.1.8
@@ -178,6 +187,7 @@ importers:
       jest-environment-jsdom: ^29.3.1
       react: ^18.2.0
       react-dom: ^18.2.0
+      react-helmet: ^6.1.0
       react-router-dom: ^6.6.2
       rimraf: ^4.0.7
       ts-node: ^10.9.1
@@ -192,6 +202,7 @@ importers:
       '@tanstack/react-query': 4.22.0_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      react-helmet: 6.1.0_react@18.2.0
       react-router-dom: 6.6.2_biqbaboplfbrettd7655fr4n2y
     devDependencies:
       '@babel/core': 7.20.12
@@ -206,6 +217,7 @@ importers:
       '@types/node': 18.11.18
       '@types/react': 18.0.26
       '@types/react-dom': 18.0.10
+      '@types/react-helmet': 6.1.6
       '@types/webpack': 5.28.0_webpack-cli@5.0.1
       babel-loader: 9.1.2_la66t7xldg4uecmyawueag5wkm
       dts-loader: 0.1.8
@@ -1712,6 +1724,12 @@ packages:
 
   /@types/react-dom/18.0.10:
     resolution: {integrity: sha512-E42GW/JA4Qv15wQdqJq8DL4JhNpB3prJgjgapN3qJT9K2zO5IIAQh4VXvCEDupoqAwnz0cY4RlXeC/ajX5SFHg==}
+    dependencies:
+      '@types/react': 18.0.26
+    dev: true
+
+  /@types/react-helmet/6.1.6:
+    resolution: {integrity: sha512-ZKcoOdW/Tg+kiUbkFCBtvDw0k3nD4HJ/h/B9yWxN4uDO8OkRksWTO+EL+z/Qu3aHTeTll3Ro0Cc/8UhwBCMG5A==}
     dependencies:
       '@types/react': 18.0.26
     dev: true
@@ -5499,6 +5517,22 @@ packages:
       react: 18.2.0
       scheduler: 0.23.0
 
+  /react-fast-compare/3.2.0:
+    resolution: {integrity: sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==}
+    dev: false
+
+  /react-helmet/6.1.0_react@18.2.0:
+    resolution: {integrity: sha512-4uMzEY9nlDlgxr61NL3XbKRy1hEkXmKNXhjbAIOVw5vcFrsdYbH2FEwcNyWvWinl103nXgzYNlns9ca+8kFiWw==}
+    peerDependencies:
+      react: '>=16.3.0'
+    dependencies:
+      object-assign: 4.1.1
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-fast-compare: 3.2.0
+      react-side-effect: 2.1.2_react@18.2.0
+    dev: false
+
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: false
@@ -5530,6 +5564,14 @@ packages:
       react: '>=16.8'
     dependencies:
       '@remix-run/router': 1.2.1
+      react: 18.2.0
+    dev: false
+
+  /react-side-effect/2.1.2_react@18.2.0:
+    resolution: {integrity: sha512-PVjOcvVOyIILrYoyGEpDN3vmYNLdy1CajSFNt4TDsVQC5KpTijDvWVoR+/7Rz2xT978D8/ZtFceXxzsPwZEDvw==}
+    peerDependencies:
+      react: ^16.3.0 || ^17.0.0 || ^18.0.0
+    dependencies:
       react: 18.2.0
     dev: false
 
