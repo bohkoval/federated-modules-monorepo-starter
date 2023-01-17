@@ -6,7 +6,7 @@
   "scripts": {
     "analyze": "webpack --config webpack/webpack.prod.ts --env analyze",
     "predev": "rimraf dist",
-    "dev": "webpack serve --open --config webpack/webpack.dev.ts",
+    "dev": "webpack serve --config webpack/webpack.dev.ts",
     "prebuild": "rimraf dist",
     "build": "webpack --config webpack/webpack.prod.ts",
     "lint": "eslint .",
@@ -20,7 +20,8 @@
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.11.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "zustand": "^4.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",

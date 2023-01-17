@@ -12,4 +12,5 @@ export enum SharedModule {
   '@emotion/react' = '@emotion/react',
   '@emotion/styled' = '@emotion/styled',
   '@mui/material' = '@mui/material',
+  'zustand' = 'zustand',
 }

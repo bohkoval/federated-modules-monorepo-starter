@@ -1,18 +1,21 @@
 import * as React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import CssBaseline from '@mui/material/CssBaseline';
+import { useCountStore } from 'shared/stores/count';
 import NavBar from './components/NavBar/NavBar';
 import Root from './pages/Root/Root';
 const App1 = React.lazy(() => import('app1/App1'));
 const App2 = React.lazy(() => import('app2/App2'));
 
 const App: React.FC = () => {
+  const { count } = useCountStore();
   return (
     <>
       <CssBaseline />
       <div>
         <div>
           <h1>This is the main app</h1>
+          <h4>Counter : {count}</h4>
           <p>
             Below is NavBar (which is in main app), and tabs inside the nav bar are different pages
           </p>
