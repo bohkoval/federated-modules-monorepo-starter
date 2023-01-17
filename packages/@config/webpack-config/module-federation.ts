@@ -2,6 +2,26 @@ import { Apps } from './enums';
 import { AppsModuleFederationConfig, AppModuleFederationConfig } from './types';
 
 const appsModuleFederationConfig: AppsModuleFederationConfig = {
+  [Apps.main]: {
+    devPort: 3000,
+    analyzerPort: 4000,
+    baseConfig: {
+      name: 'main',
+      filename: 'remoteEntry.js',
+    },
+    remotes: {
+      dev: {
+        shared: 'shared@http://localhost:3001/remoteEntry.js',
+        app1: 'app1@http://localhost:3002/remoteEntry.js',
+        app2: 'app2@http://localhost:3003/remoteEntry.js',
+      },
+      prod: {
+        shared: `shared@${process.env.PROD_HOST}/remoteEntry.js`,
+        app1: `app1@${process.env.PROD_HOST}/remoteEntry.js`,
+        app2: `app2@${process.env.PROD_HOST}/remoteEntry.js`,
+      },
+    },
+  },
   [Apps.shared]: {
     devPort: 3001,
     analyzerPort: 4001,
@@ -23,7 +43,7 @@ const appsModuleFederationConfig: AppsModuleFederationConfig = {
       name: 'app1',
       filename: 'remoteEntry.js',
       exposes: {
-        './App': './src/App',
+        './App1': './src/App1',
       },
     },
     remotes: {
@@ -31,7 +51,7 @@ const appsModuleFederationConfig: AppsModuleFederationConfig = {
         shared: 'shared@http://localhost:3001/remoteEntry.js',
       },
       prod: {
-        shared: `shared@http://${process.env.PROD_HOST}/remoteEntry.js`,
+        shared: `shared@${process.env.PROD_HOST}/remoteEntry.js`,
       },
     },
   },
@@ -42,7 +62,7 @@ const appsModuleFederationConfig: AppsModuleFederationConfig = {
       name: 'app2',
       filename: 'remoteEntry.js',
       exposes: {
-        './App': './src/App',
+        './App2': './src/App2',
       },
     },
     remotes: {
@@ -50,7 +70,7 @@ const appsModuleFederationConfig: AppsModuleFederationConfig = {
         shared: 'shared@http://localhost:3001/remoteEntry.js',
       },
       prod: {
-        shared: `shared@http://${process.env.PROD_HOST}/remoteEntry.js`,
+        shared: `shared@${process.env.PROD_HOST}/remoteEntry.js`,
       },
     },
   },

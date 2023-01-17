@@ -2,6 +2,7 @@ export enum Apps {
   shared,
   app1,
   app2,
+  main,
 }
 
 export enum SharedModule {
@@ -9,5 +10,6 @@ export enum SharedModule {
   'react-dom' = 'react-dom',
   'react-router-dom' = 'react-router-dom',
   '@emotion/react' = '@emotion/react',
+  '@emotion/styled' = '@emotion/styled',
   '@mui/material' = '@mui/material',
 }

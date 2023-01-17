@@ -1,5 +1,5 @@
 {
-  "name": "app2",
+  "name": "main",
   "version": "0.1.0",
   "main": "./src/App.tsx",
   "types": "./src/App.tsx",

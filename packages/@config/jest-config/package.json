@@ -5,6 +5,8 @@
   "dependencies": {
     "@jest/globals": "^29.3.1",
     "@testing/shared": "workspace:shared@*",
+    "@testing/app1": "workspace:app1@*",
+    "@testing/app2": "workspace:app2@*",
     "@types/jest": "^29.2.5",
     "@types/node": "^18.11.18",
     "jest": "^29.3.1",

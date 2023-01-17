@@ -8,7 +8,7 @@ export type AppModuleFederationConfig = {
   baseConfig: {
     name: string;
     filename: string;
-    exposes: Record<string, string>;
+    exposes?: Record<string, string>;
   };
   remotes?: {
     dev: Record<string, string>;

@@ -1,8 +1,8 @@
 {
   "name": "app1",
   "version": "0.1.0",
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
+  "main": "./src/App.tsx",
+  "types": "./src/App.tsx",
   "scripts": {
     "analyze": "webpack --config webpack/webpack.prod.ts --env analyze",
     "predev": "rimraf dist",
