@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { api } from '../utils';
 
 interface FilmsApiResponse {
   results: {
@@ -18,7 +19,7 @@ const useFilms = (): {
   return useQuery({
     queryKey: ['films'],
     queryFn: () =>
-      fetch('https://swapi.dev/api/films/')
+      api('https://swapi.dev/api/films/')
         .then((res) => res.json())
         .then((json) => ({ ...json, randomNumber: Math.random() })),
   });

@@ -36,6 +36,7 @@ const appsModuleFederationConfig: AppsModuleFederationConfig = {
         './styles/Global': './src/styles/Global',
         './styles/muiTheme': './src/styles/muiTheme',
         './utils/transformations': './src/utils/transformations/transformations',
+        './utils/api': './src/utils/api/api',
         './queries/client': './src/queries/client',
         './queries/useFilms': './src/queries/useFilms',
         './stores/count': './src/stores/count',
