@@ -12,6 +12,7 @@ export type AppModuleFederationConfig = {
   };
   remotes?: {
     dev: Record<string, string>;
+    localProd: Record<string, string>;
     prod: Record<string, string>;
   };
 };

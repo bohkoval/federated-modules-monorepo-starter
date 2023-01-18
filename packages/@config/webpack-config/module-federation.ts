@@ -15,6 +15,12 @@ const appsModuleFederationConfig: AppsModuleFederationConfig = {
         app1: 'app1@http://localhost:3002/remoteEntry.js',
         app2: 'app2@http://localhost:3003/remoteEntry.js',
       },
+      // this is used when you build and start locally (via top level start script)
+      localProd: {
+        shared: 'shared@http://localhost:3333/packages/shared/dist/remoteEntry.js',
+        app1: 'app1@http://localhost:3333/apps/app1/dist/remoteEntry.js',
+        app2: 'app2@http://localhost:3333/apps/app2/dist/remoteEntry.js',
+      },
       prod: {
         shared: `shared@${process.env.PROD_HOST}/remoteEntry.js`,
         app1: `app1@${process.env.PROD_HOST}/remoteEntry.js`,
@@ -57,6 +63,9 @@ const appsModuleFederationConfig: AppsModuleFederationConfig = {
       dev: {
         shared: 'shared@http://localhost:3001/remoteEntry.js',
       },
+      localProd: {
+        shared: 'shared@http://localhost:3333/packages/shared/dist/remoteEntry.js',
+      },
       prod: {
         shared: `shared@${process.env.PROD_HOST}/remoteEntry.js`,
       },
@@ -75,6 +84,9 @@ const appsModuleFederationConfig: AppsModuleFederationConfig = {
     remotes: {
       dev: {
         shared: 'shared@http://localhost:3001/remoteEntry.js',
+      },
+      localProd: {
+        shared: 'shared@http://localhost:3333/packages/shared/dist/remoteEntry.js',
       },
       prod: {
         shared: `shared@${process.env.PROD_HOST}/remoteEntry.js`,

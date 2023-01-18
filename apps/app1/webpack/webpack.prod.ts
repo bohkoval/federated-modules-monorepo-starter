@@ -7,15 +7,19 @@ import { getBundleAnalyzerPlugin } from '@config/webpack-config/utils';
 
 import getCommonConfig, { getCommonModuleFederationConfig } from './webpack.common';
 
-const getProdConfig = (env: Record<string, string | boolean>): webpack.Configuration =>
-  merge(getProdCommonConfig(), getCommonConfig(), {
+const getProdConfig = (env: Record<string, string | boolean>): webpack.Configuration => {
+  const remotes = getAppModuleFederationConfig(Apps.app1).remotes?.[
+    env.local ? 'localProd' : 'prod'
+  ];
+  return merge(getProdCommonConfig(), getCommonConfig(), {
     plugins: [
       new webpack.container.ModuleFederationPlugin({
         ...getCommonModuleFederationConfig(),
-        remotes: getAppModuleFederationConfig(Apps.app1).remotes?.prod,
+        remotes: remotes,
       }),
       ...(env.analyze ? [getBundleAnalyzerPlugin(Apps.app1)] : []),
     ],
   });
+};
 
 export default getProdConfig;

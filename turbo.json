@@ -9,6 +9,14 @@
       "env": ["PROD_HOST"],
       "outputs": ["dist/**", "build/**"]
     },
+    "build:local": {
+      "dependsOn": ["^build:local"],
+      "outputs": ["dist/**", "build/**"]
+    },
+    "serve:local": {
+      "persistent": true
+    },
+    "start": { "persistent": true },
     "lint": {},
     "lint:fix": {},
     "format": {},

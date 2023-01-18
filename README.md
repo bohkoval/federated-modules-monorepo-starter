@@ -19,6 +19,10 @@ Starter to bootstrap a web application, composite of React microfrontends and sh
 
 `pnpm build` - to compile the whole app.
 
+### Local serve
+
+`pnpm serve:local` - this command simulates real server, so that we receive setup similar if we deploy our dists (all compiled JS/html) on some static hosting (e.g. S3). This command utilizes `build:local` (to provide prod's `dist`, only difference is `remotes` config in webpack). Then, we serve the static files via `serve`.
+
 ### Testing
 
 `pnpm test` - to launch Jest + React Testing Library tests for the whole app.
