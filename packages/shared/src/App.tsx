@@ -1,5 +1,4 @@
 import * as React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import { Button, InputWithLabel, MemeImage, SomeForm } from './components';
 import { swapObjectKeyValue } from './utils';
@@ -14,7 +13,6 @@ const App: React.FC = () => {
 
   return (
     <>
-      <CssBaseline />
       <div>
         <div>
           <h3>Button</h3>

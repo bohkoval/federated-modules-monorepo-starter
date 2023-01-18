@@ -33,6 +33,8 @@ const appsModuleFederationConfig: AppsModuleFederationConfig = {
         './components/InputWithLabel': './src/components/InputWithLabel/InputWithLabel',
         './components/MemeImage': './src/components/MemeImage/MemeImage',
         './components/SomeForm': './src/components/SomeForm/SomeForm',
+        './styles/Global': './src/styles/Global',
+        './styles/muiTheme': './src/styles/muiTheme',
         './utils/transformations': './src/utils/transformations/transformations',
         './queries/client': './src/queries/client',
         './queries/useFilms': './src/queries/useFilms',

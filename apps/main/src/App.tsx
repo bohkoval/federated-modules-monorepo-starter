@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 import { useCountStore } from 'shared/stores/count';
 import useFilms from 'shared/queries/useFilms';
@@ -14,7 +13,6 @@ const App: React.FC = () => {
   const { data, status } = useFilms();
   return (
     <>
-      <CssBaseline />
       <div>
         <div>
           <h1>This is the main app</h1>

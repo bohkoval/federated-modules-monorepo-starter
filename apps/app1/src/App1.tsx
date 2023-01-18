@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Page1 from './pages/page1/Page1';
 import Page2 from './pages/page2/Page2';
@@ -18,7 +17,6 @@ const App1: React.FC = () => {
 
   return (
     <>
-      <CssBaseline />
       <Helmet>
         <title>App1 title</title>
       </Helmet>
