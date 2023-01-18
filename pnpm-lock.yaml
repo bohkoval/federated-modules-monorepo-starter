@@ -329,6 +329,7 @@ importers:
       '@config/webpack-config': workspace:*
       '@emotion/react': ^11.10.5
       '@emotion/styled': ^11.10.5
+      '@hookform/resolvers': ^2.9.10
       '@mui/material': ^5.11.4
       '@tanstack/react-query': ^4.22.0
       '@testing-library/jest-dom': ^5.16.5
@@ -345,6 +346,7 @@ importers:
       jest-environment-jsdom: ^29.3.1
       react: ^18.2.0
       react-dom: ^18.2.0
+      react-hook-form: ^7.42.1
       react-router-dom: ^6.6.2
       rimraf: ^4.0.7
       ts-node: ^10.9.1
@@ -352,15 +354,19 @@ importers:
       webpack: ^5.75.0
       webpack-cli: ^5.0.1
       webpack-merge: ^5.8.0
+      zod: ^3.20.2
       zustand: ^4.3.2
     dependencies:
       '@emotion/react': 11.10.5_jp5qgyg6plq757v5hojp7ls2oe
       '@emotion/styled': 11.10.5_jp5djshq6aqfasno3mth3hguci
+      '@hookform/resolvers': 2.9.10_react-hook-form@7.42.1
       '@mui/material': 5.11.4_lskpmcsdi7ipu6qpuapyu56ihm
       '@tanstack/react-query': 4.22.0_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      react-hook-form: 7.42.1_react@18.2.0
       react-router-dom: 6.6.2_biqbaboplfbrettd7655fr4n2y
+      zod: 3.20.2
       zustand: 4.3.2_react@18.2.0
     devDependencies:
       '@babel/core': 7.20.12
@@ -1004,6 +1010,14 @@ packages:
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
       - supports-color
+
+  /@hookform/resolvers/2.9.10_react-hook-form@7.42.1:
+    resolution: {integrity: sha512-JIL1DgJIlH9yuxcNGtyhsWX/PgNltz+5Gr6+8SX9fhXc/hPbEIk6wPI82nhgvp3uUb6ZfAM5mqg/x7KR7NAb+A==}
+    peerDependencies:
+      react-hook-form: ^7.0.0
+    dependencies:
+      react-hook-form: 7.42.1_react@18.2.0
+    dev: false
 
   /@humanwhocodes/config-array/0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==}
@@ -5533,6 +5547,15 @@ packages:
       react-side-effect: 2.1.2_react@18.2.0
     dev: false
 
+  /react-hook-form/7.42.1_react@18.2.0:
+    resolution: {integrity: sha512-2UIGqwMZksd5HS55crTT1ATLTr0rAI4jS7yVuqTaoRVDhY2Qc4IyjskCmpnmdYqUNOYFy04vW253tb2JRVh+IQ==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: false
@@ -6966,6 +6989,10 @@ packages:
   /yocto-queue/0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+
+  /zod/3.20.2:
+    resolution: {integrity: sha512-1MzNQdAvO+54H+EaK5YpyEy0T+Ejo/7YLHS93G3RnYWh5gaotGHwGeN/ZO687qEDU2y4CdStQYXVHIgrUl5UVQ==}
+    dev: false
 
   /zustand/4.3.2_react@18.2.0:
     resolution: {integrity: sha512-rd4haDmlwMTVWVqwvgy00ny8rtti/klRoZjFbL/MAcDnmD5qSw/RZc+Vddstdv90M5Lv6RPgWvm1Hivyn0QgJw==}

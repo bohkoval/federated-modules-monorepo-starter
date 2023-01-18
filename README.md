@@ -37,11 +37,13 @@ The app in general (and each separate sub-app in particular) are built on top of
 - [Webpack](https://webpack.js.org/) (v5+) - with [module federation](https://webpack.js.org/concepts/module-federation/) to be able to ship & deploy apps separately
 - [React](https://reactjs.org/) (v18+)
 - [React Router](https://reactrouter.com/en/main) (v6+) - NOTE: make sure you do not use Router if it is remote (mfe) app - Router to be present only in host (main) app
-- [React Helmet](https://github.com/nfl/react-helmet) (v6) - to manipulate with document head
+- [React Helmet](https://github.com/nfl/react-helmet) (v6+) - to manipulate with document head
 - [Zustand](https://github.com/pmndrs/zustand) (v4+) - as lightweight alternative to redux for client-side state management
 - [React Query](https://github.com/tanstack/query) (v4+) - for async server-side state management
 - [Emotion](https://emotion.sh/docs/introduction) (v11+) - for CSS-in-JS styling approach
 - [Material UI](https://mui.com/material-ui/getting-started/overview/) (v5+) - for customizable UI components
+- [React Hook Form](https://react-hook-form.com/) (v7+) - for managing forms
+- [Zod](https://github.com/colinhacks/zod) - for schema validation
 - [Jest](https://jestjs.io/docs/getting-started) (v29+)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) (v13+)
 - [ESLint](https://eslint.org/docs/latest/) + [Prettier](https://prettier.io/docs/en/index.html) + [lint-staged](https://github.com/okonet/lint-staged) + [husky](https://github.com/typicode/husky) - for code quality and better DevExperience
@@ -53,3 +55,7 @@ The app in general (and each separate sub-app in particular) are built on top of
 - `apps/main`: Container React app, which places and orchestrates React MFEs (app1 and app2)
 - `packages/components`: package with shared components (buttons, fields, etc.), which are used by the apps
 - `packages/@config`: package with shared configs for the used tools (ts, eslint, webpack, babel, etc.)
+
+## Guidelines
+
+1. If a component (util, service, etc.) is shared between 2 or more apps - place it in `shared` components app and reuse. If a component is used only in 1 app (even multiple times, but only 1 app) - place it in `components` folder of the app

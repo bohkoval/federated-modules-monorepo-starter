@@ -1,7 +1,7 @@
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
-import { Button, InputWithLabel, MemeImage } from './components';
+import { Button, InputWithLabel, MemeImage, SomeForm } from './components';
 import { swapObjectKeyValue } from './utils';
 
 const App: React.FC = () => {
@@ -28,6 +28,10 @@ const App: React.FC = () => {
         <div>
           <h3>Component with image</h3>
           <MemeImage />
+        </div>
+        <div>
+          <h3>Some Form</h3>
+          <SomeForm />
         </div>
       </div>
     </>

@@ -15,4 +15,7 @@ export enum SharedModule {
   '@mui/material' = '@mui/material',
   'zustand' = 'zustand',
   '@tanstack/react-query' = '@tanstack/react-query',
+  '@hookform/resolvers' = '@hookform/resolvers',
+  'react-hook-form' = 'react-hook-form',
+  'zod' = 'zod',
 }
