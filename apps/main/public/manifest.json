@@ -11,6 +11,12 @@
       "src": "/favicon.png",
       "type": "image/png",
       "sizes": "512x512"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "196x196",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
   "id": "/?source=pwa",
