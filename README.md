@@ -50,6 +50,7 @@ The app in general (and each separate sub-app in particular) are built on top of
 - [Zod](https://github.com/colinhacks/zod) - for schema validation
 - [Jest](https://jestjs.io/docs/getting-started) (v29+)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) (v13+)
+- [Playwright](https://playwright.dev/) - for e2e tests
 - [ESLint](https://eslint.org/docs/latest/) + [Prettier](https://prettier.io/docs/en/index.html) + [lint-staged](https://github.com/okonet/lint-staged) + [husky](https://github.com/typicode/husky) - for code quality and better DevExperience
 
 ## Apps and Packages
@@ -84,3 +85,4 @@ Why particularly this tech stack? This is a brief overview/recap why this or tha
 14. Jest - there is just no real alternative in front-end JS unit testing. [Mocha](https://mochajs.org/) may be an alternative on large back-end projects, but still, Jest is de-facto standard.
 15. React Testing Library - there is [enzyme](https://github.com/enzymejs/enzyme/), but it does testing in the old way, where you check props, attributes, etc. It is more unit-testing scale, and there is not real reason to do it for React components. RTL takes alternative, and I'd say better, approach - it examines component's behavior and appearance, and shifts testing more towards integration layer.
 16. ESLint + Prettier + lint-staged + husky - there are TSLint, ESHint and others - but only this gang of 4 made it through years and haven't been deprecated (because they, again, just do their job)
+17. Playwright - at initial look [Cypress](https://www.cypress.io/) seemed to be a tool to go with - it is battle-tested, mature and have big community. But still we should inspect alternatives just in case, and here we come by Playwright, which seems to take all good parts of cypress, and add broader browsers support (e.g. Safari), is TS-first, plus supports multiple languages (just in case), and (in my personal opinion) is even easier than cypress.

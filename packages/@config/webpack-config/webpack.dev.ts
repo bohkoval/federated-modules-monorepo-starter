@@ -19,6 +19,11 @@ const getDevCommonConfig = ({ port }: { port: number }): webpack.Configuration =
       historyApiFallback: true,
       hot: 'only',
     },
+    plugins: [
+      new webpack.DefinePlugin({
+        API_BASE_URL: 'https://swapi.dev',
+      }),
+    ],
   });
 
 export default getDevCommonConfig;

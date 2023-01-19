@@ -12,19 +12,10 @@ default:
       - .pnpm-store
 
 stages:
-  - build
   - lint
   - test
-
-build:
-  stage: build
-  script:
-    - pnpm install
-    - pnpm build
-  artifacts:
-    paths:
-      - '**/dist'
-      - '**/build'
+  - e2e
+  - build
 
 lint:
   stage: lint
@@ -37,3 +28,25 @@ test:
   script:
     - pnpm install
     - pnpm test
+
+e2e:
+  stage: e2e
+  image: mcr.microsoft.com/playwright:v1.29.0-focal
+  # to boost execution speed if needed - apply sharding https://playwright.dev/docs/ci#sharding-1
+  script:
+    - pnpm install
+    - pnpm e2e
+  artifacts:
+    paths:
+      - '**/playwright-report'
+      - '**/test-results'
+
+build:
+  stage: build
+  script:
+    - pnpm install
+    - pnpm build
+  artifacts:
+    paths:
+      - '**/dist'
+      - '**/build'

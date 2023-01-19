@@ -7,27 +7,32 @@
   "workspaces": [
     "apps/*",
     "packages/*",
-    "packages/@config/*"
+    "packages/@config/*",
+    "e2e"
   ],
   "scripts": {
     "analyze": "turbo analyze",
     "build": "turbo build",
-    "build:local": "turbo build:local",
+    "build:local": "cross-env HOST_BASE_URL=\"http://localhost:3333\" turbo build",
     "serve:local:remotes": "serve -l 3333 -s --cors",
     "serve:local:main": "serve apps/main/dist -l 80 -s --cors",
-    "serve:open-browser": "open \"http://localhost:80\"",
-    "serve:local": "npm-run-all build:local --parallel serve:local:remotes serve:local:main serve:open-browser",
-    "dev": "turbo dev --parallel",
+    "serve:local:start": "npm-run-all --parallel serve:local:remotes serve:local:main",
+    "serve:local": "npm-run-all build:local serve:local:start",
+    "dev": "turbo dev",
     "lint": "turbo lint",
     "lint:fix": "turbo lint:fix",
     "test": "turbo test",
     "test:coverage": "turbo test:coverage",
     "test:watch": "turbo test:watch",
+    "e2e:start": "turbo e2e",
+    "e2e": "npm-run-all build:local e2e:start",
+    "e2e:show-report": "turbo e2e:show-report",
     "format": "prettier --config ./.prettierrc.json --write .",
     "clean": "rimraf apps/*/node_modules packages/*/node_modules pnpm-lock.yaml node_modules"
   },
   "devDependencies": {
     "@config/eslint-config": "workspace:*",
+    "cross-env": "^7.0.3",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
     "npm-run-all": "^4.1.5",

@@ -1,0 +1,13 @@
+{
+  "name": "e2e",
+  "version": "1.0.0",
+  "description": "E2E tests for the whole app",
+  "scripts": {
+    "e2e": "pnpm dlx playwright test",
+    "e2e:show-report": "npx playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.29.2",
+    "dotenv": "^16.0.3"
+  }
+}

@@ -9,7 +9,6 @@
     "dev": "webpack serve --open --config webpack/webpack.dev.ts",
     "prebuild": "rimraf dist",
     "build": "webpack --config webpack/webpack.prod.ts",
-    "build:local": "webpack --config webpack/webpack.prod.ts --env local",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "jest",

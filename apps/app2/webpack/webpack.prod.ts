@@ -8,14 +8,11 @@ import getProdCommonConfig from '@config/webpack-config/webpack.prod';
 import getCommonConfig, { getCommonModuleFederationConfig } from './webpack.common';
 
 const getProdConfig = (env: Record<string, string | boolean>): webpack.Configuration => {
-  const remotes = getAppModuleFederationConfig(Apps.app2).remotes?.[
-    env.local ? 'localProd' : 'prod'
-  ];
   return merge(getProdCommonConfig(), getCommonConfig(), {
     plugins: [
       new webpack.container.ModuleFederationPlugin({
         ...getCommonModuleFederationConfig(),
-        remotes: remotes,
+        remotes: getAppModuleFederationConfig(Apps.app2).remotes?.prod,
       }),
       ...(env.analyze ? [getBundleAnalyzerPlugin(Apps.app2)] : []),
     ],

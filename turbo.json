@@ -2,32 +2,49 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "analyze": {
+      "dependsOn": ["^analyze"],
       "persistent": true
     },
     "build": {
       "dependsOn": ["^build"],
-      "env": ["PROD_HOST"],
+      "env": ["HOST_BASE_URL", "API_BASE_URL"],
       "outputs": ["dist/**", "build/**"]
     },
     "build:local": {
-      "dependsOn": ["^build:local"],
+      "dependsOn": ["^build"],
+      "env": ["HOST_BASE_URL", "API_BASE_URL"],
       "outputs": ["dist/**", "build/**"]
     },
     "serve:local": {
       "persistent": true
     },
     "start": { "persistent": true },
-    "lint": {},
-    "lint:fix": {},
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
+    "lint:fix": {
+      "dependsOn": ["^lint:fix"]
+    },
     "format": {},
-    "test": {},
+    "test": {
+      "dependsOn": ["^test"]
+    },
     "test:coverage": {
+      "dependsOn": ["^test:coverage"],
       "outputs": ["coverage/**"]
     },
     "test:watch": {
       "persistent": true
     },
+    "e2e": {
+      "env": ["CI"],
+      "outputs": ["playwright-report/**", "test-results/**"]
+    },
+    "e2e:show-report": {
+      "persistent": true
+    },
     "dev": {
+      "dependsOn": ["^dev"],
       "cache": false,
       "persistent": true
     }

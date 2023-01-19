@@ -19,7 +19,7 @@ const useFilms = (): {
   return useQuery({
     queryKey: ['films'],
     queryFn: () =>
-      api('https://swapi.dev/api/films/')
+      api('/api/films/')
         .then((res) => res.json())
         .then((json) => ({ ...json, randomNumber: Math.random() })),
   });
