@@ -20,7 +20,7 @@ const getDevCommonConfig = ({ port }: { port: number }): webpack.Configuration =
       hot: 'only',
     },
     plugins: [
-      new webpack.DefinePlugin({
+      new webpack.EnvironmentPlugin({
         API_BASE_URL: 'https://swapi.dev',
       }),
     ],

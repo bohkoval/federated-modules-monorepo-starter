@@ -12,7 +12,7 @@ const getProdCommonConfig = (): webpack.Configuration =>
       minimizer: [new TerserPlugin()],
     },
     plugins: [
-      new webpack.DefinePlugin({
+      new webpack.EnvironmentPlugin({
         API_BASE_URL: 'https://swapi.dev',
       }),
     ],
