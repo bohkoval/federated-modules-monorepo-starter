@@ -5,6 +5,11 @@ import { useCountStore } from 'shared/stores/count';
 import useFilms from 'shared/queries/useFilms';
 import NavBar from './components/NavBar/NavBar';
 import Root from './pages/Root/Root';
+
+/**
+ * if safe import is needed (in case of remote bundle loading fails)
+ * consider using FederatedBoundary https://github.com/module-federation/universe/tree/main/packages/utilities#react-utilities
+ */
 const App1 = React.lazy(() => import('app1/App1'));
 const App2 = React.lazy(() => import('app2/App2'));
 

@@ -16,6 +16,7 @@ stages:
   - test
   - e2e
   - build
+  - deploy
 
 lint:
   stage: lint
@@ -24,12 +25,16 @@ lint:
     - pnpm lint
 
 test:
+  needs:
+    - lint
   stage: test
   script:
     - pnpm install
     - pnpm test
 
 e2e:
+  needs:
+    - test
   stage: e2e
   image: mcr.microsoft.com/playwright:v1.29.0-focal
   # to boost execution speed if needed - apply sharding https://playwright.dev/docs/ci#sharding-1
@@ -42,6 +47,8 @@ e2e:
       - '**/test-results'
 
 build:
+  needs:
+    - e2e
   stage: build
   script:
     - pnpm install
@@ -50,3 +57,35 @@ build:
     paths:
       - '**/dist'
       - '**/build'
+
+.deploy:
+  needs:
+    - build
+  stage: deploy
+  script:
+    - echo "deploy $APP_NAME"
+
+deploy:all:
+  extends: .deploy
+  variables:
+    APP_NAME: all
+
+deploy:main:
+  extends: .deploy
+  variables:
+    APP_NAME: main
+
+deploy:app1:
+  extends: .deploy
+  variables:
+    APP_NAME: app1
+
+deploy:app2:
+  extends: .deploy
+  variables:
+    APP_NAME: app2
+
+deploy:shared:
+  extends: .deploy
+  variables:
+    APP_NAME: shared
