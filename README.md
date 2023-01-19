@@ -27,6 +27,8 @@ Starter to bootstrap a web application, composite of React microfrontends and sh
 
 `pnpm test` - to launch Jest + React Testing Library tests for the whole app.
 
+`pnpm e2e` - to launch Playwright E2E tests. They will run against "serve:local" (compiled code, which simulates prod deployment on local machine)
+
 ### Linting
 
 `pnpm lint` - to launch ESLint check for the whole app.
@@ -61,7 +63,9 @@ The app in general (and each separate sub-app in particular) are built on top of
 - `packages/components`: package with shared components (buttons, fields, etc.), which are used by the apps
 - `packages/@config`: package with shared configs for the used tools (ts, eslint, webpack, babel, etc.)
 
-## Guidelines
+## App composition
+
+![App composition diagram](./AppComposition.drawio.svg)
 
 1. If a component (util, service, etc.) is shared between 2 or more apps - place it in `shared` components app and reuse. If a component is used only in 1 app (even multiple times, but only 1 app) - place it in `components` folder of the app
 
