@@ -54,6 +54,7 @@ The app in general (and each separate sub-app in particular) are built on top of
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) (v13+)
 - [Playwright](https://playwright.dev/) - for e2e tests
 - [ESLint](https://eslint.org/docs/latest/) + [Prettier](https://prettier.io/docs/en/index.html) + [lint-staged](https://github.com/okonet/lint-staged) + [husky](https://github.com/typicode/husky) - for code quality and better DevExperience
+- [PWA](https://web.dev/progressive-web-apps/) experience with the help of [workbox-webpack-plugin](https://github.com/googlechrome/workbox) (v6+) (which provides service worker) and `manifest.json` file - only for main app
 
 ## Apps and Packages
 

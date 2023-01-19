@@ -1,0 +1,22 @@
+{
+  "short_name": "Module Federated App",
+  "name": "Module Federated App: powered lots of cool tech stack",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/favicon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "id": "/?source=pwa",
+  "start_url": "/?source=pwa",
+  "background_color": "#3367D6",
+  "theme_color": "#3367D6",
+  "display": "minimal-ui",
+  "description": "Module Federated App example, built by Bohdan Koval <bohkoval@gmail.com> with lots of cool tech"
+}

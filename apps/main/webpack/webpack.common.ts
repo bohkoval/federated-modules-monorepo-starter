@@ -6,6 +6,7 @@ import {
   getAppModuleFederationConfig,
   getDtsModuleConfig,
 } from '@config/webpack-config/module-federation';
+import CopyPlugin from 'copy-webpack-plugin';
 import { dependencies } from '../package.json';
 
 export const getCommonModuleFederationConfig = (): CommonModuleFederationConfig => ({
@@ -17,6 +18,11 @@ const getCommonConfig = (): webpack.Configuration => ({
   module: {
     rules: [getDtsModuleConfig(Apps.main)],
   },
+  plugins: [
+    new CopyPlugin({
+      patterns: [{ from: './public/manifest.json', to: './manifest.json' }],
+    }),
+  ],
 });
 
 export default getCommonConfig;
