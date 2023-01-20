@@ -2,7 +2,6 @@ import * as path from 'path';
 import * as webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
-import WorkboxPlugin from 'workbox-webpack-plugin';
 
 const getCommonConfig = (): webpack.Configuration => ({
   entry: './src/main',
@@ -36,10 +35,6 @@ const getCommonConfig = (): webpack.Configuration => ({
       template: './public/index.html',
       publicPath: '/',
       favicon: './public/favicon.png',
-    }),
-    new WorkboxPlugin.GenerateSW({
-      clientsClaim: true,
-      skipWaiting: true,
     }),
   ],
 });
