@@ -4,7 +4,7 @@ Starter to bootstrap a web application, composite of React microfrontends and sh
 
 ## Installation
 
-1. Install Node 14 or later
+1. Install Node 16 or later
 2. Install pnpm package manager. pnpm is used since it runs faster and solves [NPM doppelgangers problem](https://rushjs.io/pages/advanced/npm_doppelgangers/). For pnpm installation instruction visit [official doc](https://pnpm.io/installation)
 3. Run `pnpm install` to install dependencies
 4. [Optional, but recommended] Install [husky](https://typicode.github.io/husky/#/) and initialize it (via `npx husky install`) to provide better dev experience (git hooks)
