@@ -33,6 +33,10 @@ Starter to bootstrap a web application, composite of React microfrontends and sh
 
 `pnpm lint` - to launch ESLint check for the whole app.
 
+### Storybook (components)
+
+`pnpm storybook` - to launch storybook locally. Storybook can use any component from any app/package to demo it. Also, it is possible to build storybook and deploy compiled static files (just as regular front-end app)
+
 ## Tech stack
 
 The app in general (and each separate sub-app in particular) are built on top of:
@@ -53,6 +57,7 @@ The app in general (and each separate sub-app in particular) are built on top of
 - [Jest](https://jestjs.io/docs/getting-started) (v29+)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) (v13+)
 - [Playwright](https://playwright.dev/) - for e2e tests
+- [Storybook](https://storybook.js.org/) - to list and demo UI components
 - [ESLint](https://eslint.org/docs/latest/) + [Prettier](https://prettier.io/docs/en/index.html) + [lint-staged](https://github.com/okonet/lint-staged) + [husky](https://github.com/typicode/husky) - for code quality and better DevExperience
 - [PWA](https://web.dev/progressive-web-apps/) experience with the help of [workbox-webpack-plugin](https://github.com/googlechrome/workbox) (v6+) (which provides service worker) and `manifest.json` file - only for main app
 
@@ -63,6 +68,8 @@ The app in general (and each separate sub-app in particular) are built on top of
 - `apps/main`: Container React app, which places and orchestrates React MFEs (app1 and app2)
 - `packages/components`: package with shared components (buttons, fields, etc.), which are used by the apps
 - `packages/@config`: package with shared configs for the used tools (ts, eslint, webpack, babel, etc.)
+- `e2e`: Standalone application for e2e testing of the whole app. Powered by Playwright
+- `storybook`: Standalone app (powered by Storybook) for listing of all reusable components (to provide their demo)
 
 ## App composition
 
@@ -91,3 +98,4 @@ Why particularly this tech stack? This is a brief overview/recap why this or tha
 15. React Testing Library - there is [enzyme](https://github.com/enzymejs/enzyme/), but it does testing in the old way, where you check props, attributes, etc. It is more unit-testing scale, and there is not real reason to do it for React components. RTL takes alternative, and I'd say better, approach - it examines component's behavior and appearance, and shifts testing more towards integration layer.
 16. ESLint + Prettier + lint-staged + husky - there are TSLint, ESHint and others - but only this gang of 4 made it through years and haven't been deprecated (because they, again, just do their job)
 17. Playwright - at initial look [Cypress](https://www.cypress.io/) seemed to be a tool to go with - it is battle-tested, mature and have big community. But still we should inspect alternatives just in case, and here we come by Playwright, which seems to take all good parts of cypress, and add broader browsers support (e.g. Safari), is TS-first, plus supports multiple languages (just in case), and (in my personal opinion) is even easier than cypress.
+18. Storybook - the most advanced (and open-source) lib for demoing UI components so far, which a bunch of available add-ons, even for testing, though we are using it mainly to demonstrate UI components.
