@@ -28,7 +28,6 @@
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@config/babel-config": "workspace*",
-    "@config/eslint-config": "workspace:*",
     "@config/jest-config": "workspace:*",
     "@config/tsconfig": "workspace:*",
     "@config/webpack-config": "workspace:*",

@@ -28,7 +28,6 @@ importers:
     specifiers:
       '@babel/core': ^7.20.12
       '@config/babel-config': workspace*
-      '@config/eslint-config': workspace:*
       '@config/jest-config': workspace:*
       '@config/tsconfig': workspace:*
       '@config/webpack-config': workspace:*
@@ -71,7 +70,6 @@ importers:
     devDependencies:
       '@babel/core': 7.20.12
       '@config/babel-config': link:../../packages/@config/babel-config
-      '@config/eslint-config': link:../../packages/@config/eslint-config
       '@config/jest-config': link:../../packages/@config/jest-config
       '@config/tsconfig': link:../../packages/@config/tsconfig
       '@config/webpack-config': link:../../packages/@config/webpack-config
@@ -99,7 +97,6 @@ importers:
     specifiers:
       '@babel/core': ^7.20.12
       '@config/babel-config': workspace*
-      '@config/eslint-config': workspace:*
       '@config/jest-config': workspace:*
       '@config/tsconfig': workspace:*
       '@config/webpack-config': workspace:*
@@ -142,7 +139,6 @@ importers:
     devDependencies:
       '@babel/core': 7.20.12
       '@config/babel-config': link:../../packages/@config/babel-config
-      '@config/eslint-config': link:../../packages/@config/eslint-config
       '@config/jest-config': link:../../packages/@config/jest-config
       '@config/tsconfig': link:../../packages/@config/tsconfig
       '@config/webpack-config': link:../../packages/@config/webpack-config
@@ -170,7 +166,6 @@ importers:
     specifiers:
       '@babel/core': ^7.20.12
       '@config/babel-config': workspace*
-      '@config/eslint-config': workspace:*
       '@config/jest-config': workspace:*
       '@config/tsconfig': workspace:*
       '@config/webpack-config': workspace:*
@@ -214,7 +209,6 @@ importers:
     devDependencies:
       '@babel/core': 7.20.12
       '@config/babel-config': link:../../packages/@config/babel-config
-      '@config/eslint-config': link:../../packages/@config/eslint-config
       '@config/jest-config': link:../../packages/@config/jest-config
       '@config/tsconfig': link:../../packages/@config/tsconfig
       '@config/webpack-config': link:../../packages/@config/webpack-config
@@ -341,7 +335,6 @@ importers:
     specifiers:
       '@babel/core': ^7.20.12
       '@config/babel-config': workspace:*
-      '@config/eslint-config': workspace:*
       '@config/jest-config': workspace:*
       '@config/tsconfig': workspace:*
       '@config/webpack-config': workspace:*
@@ -389,7 +382,6 @@ importers:
     devDependencies:
       '@babel/core': 7.20.12
       '@config/babel-config': link:../@config/babel-config
-      '@config/eslint-config': link:../@config/eslint-config
       '@config/jest-config': link:../@config/jest-config
       '@config/tsconfig': link:../@config/tsconfig
       '@config/webpack-config': link:../@config/webpack-config
