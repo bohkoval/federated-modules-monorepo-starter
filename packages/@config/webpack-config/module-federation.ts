@@ -1,6 +1,8 @@
 import { Apps } from './enums';
 import { AppsModuleFederationConfig, AppModuleFederationConfig } from './types';
 
+const hostBaseUrl = process.env.HOST_BASE_URL || '';
+
 const appsModuleFederationConfig: AppsModuleFederationConfig = {
   [Apps.main]: {
     devPort: 3000,
@@ -16,9 +18,9 @@ const appsModuleFederationConfig: AppsModuleFederationConfig = {
         app2: 'app2@http://localhost:3003/remoteEntry.js',
       },
       prod: {
-        shared: `shared@${process.env.HOST_BASE_URL}/packages/shared/dist/remoteEntry.js`,
-        app1: `app1@${process.env.HOST_BASE_URL}/apps/app1/dist/remoteEntry.js`,
-        app2: `app2@${process.env.HOST_BASE_URL}/apps/app2/dist/remoteEntry.js`,
+        shared: `shared@${hostBaseUrl}packages/shared/dist/remoteEntry.js`,
+        app1: `app1@${hostBaseUrl}apps/app1/dist/remoteEntry.js`,
+        app2: `app2@${hostBaseUrl}apps/app2/dist/remoteEntry.js`,
       },
     },
   },
@@ -58,7 +60,7 @@ const appsModuleFederationConfig: AppsModuleFederationConfig = {
         shared: 'shared@http://localhost:3001/remoteEntry.js',
       },
       prod: {
-        shared: `shared@${process.env.HOST_BASE_URL}/packages/shared/dist/remoteEntry.js`,
+        shared: `shared@${hostBaseUrl}packages/shared/dist/remoteEntry.js`,
       },
     },
   },
@@ -77,7 +79,7 @@ const appsModuleFederationConfig: AppsModuleFederationConfig = {
         shared: 'shared@http://localhost:3001/remoteEntry.js',
       },
       prod: {
-        shared: `shared@${process.env.HOST_BASE_URL}/packages/shared/dist/remoteEntry.js`,
+        shared: `shared@${hostBaseUrl}packages/shared/dist/remoteEntry.js`,
       },
     },
   },

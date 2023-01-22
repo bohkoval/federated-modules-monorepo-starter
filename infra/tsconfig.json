@@ -1,0 +1,14 @@
+{
+  "extends": "@config/tsconfig",
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "CommonJS",
+    "lib": ["es2020"],
+    "declaration": true,
+    "noFallthroughCasesInSwitch": false,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "strictPropertyInitialization": false
+  },
+  "exclude": ["node_modules", "cdk.out"]
+}

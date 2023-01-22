@@ -1,0 +1,143 @@
+default:
+  image: node:18
+  before_script:
+    # install pnpm
+    - wget -qO /bin/pnpm "https://github.com/pnpm/pnpm/releases/latest/download/pnpm-linuxstatic-x64" && chmod +x /bin/pnpm
+    - pnpm config set store-dir .pnpm-store
+  cache:
+    key:
+      files:
+        - pnpm-lock.yaml
+    paths:
+      - .pnpm-store
+
+variables:
+  BUCKET_NAME: 'federated-web-app-bucket'
+  AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+
+stages:
+  - lint
+  - build
+  - test
+  - e2e
+  - deploy
+
+lint:
+  stage: lint
+  script:
+    - pnpm install
+    - pnpm lint
+
+build:
+  needs:
+    - lint
+  stage: build
+  script:
+    - pnpm install
+    - pnpm build
+  artifacts:
+    paths:
+      - apps/*/dist
+      - apps/*/.wp_federation
+      - packages/*/dist
+      - packages/*/.wp_federation
+
+test:
+  needs:
+    - build
+  stage: test
+  dependencies:
+    - build
+  script:
+    - pnpm install
+    - pnpm test:ci
+
+test:infra:
+  stage: test
+  script:
+    - pnpm install
+    - cd infra
+    - pnpm infra:test:ci
+
+e2e:
+  stage: e2e
+  needs:
+    - build
+  image: mcr.microsoft.com/playwright:v1.29.0-focal
+  # to boost execution speed if needed - apply sharding https://playwright.dev/docs/ci#sharding-1
+  script:
+    - pnpm install
+    - pnpm e2e
+  artifacts:
+    paths:
+      - e2e/playwright-report
+      - e2e/test-results
+
+.deploy:
+  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+  needs:
+    - build
+    - test
+    - e2e
+  stage: deploy
+  rules:
+    - if: $CI_COMMIT_BRANCH == 'main'
+      when: manual
+    - when: never
+  dependencies:
+    - build
+  before_script:
+    - aws --version
+  script:
+    # place main in root
+    - >
+      if [ "$SOURCE" == "apps/main" ]; then
+        DESTINATION_PATH=""
+      else
+        DESTINATION_PATH="${SOURCE}/dist"
+      fi
+    - aws s3 sync ${SOURCE}/dist s3://${BUCKET_NAME}/${DESTINATION_PATH}
+    # get distribution id by origin (bucket)
+    - CLOUDFRONT_ID=$( aws cloudfront list-distributions --query "DistributionList.Items[*].{id:Id,origin:Origins.Items[0].Id,domainName:Origins.Items[0].DomainName}[?domainName=='${BUCKET_NAME}.s3.${AWS_DEFAULT_REGION}.amazonaws.com'].id" --output text)
+    - aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_ID} --paths "/${SOURCE}/*"
+
+deploy:infra:
+  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+  stage: deploy
+  needs:
+    - test:infra
+  rules:
+    - if: $CI_COMMIT_BRANCH == 'main'
+      when: manual
+    - when: never
+  before_script:
+    - curl -fsSL https://deb.nodesource.com/setup_18.x | bash - &&\
+    - apt-get install -y nodejs
+    # install pnpm (for Ubuntu, which is used in aws-base)
+    - npm install -g pnpm
+    - pnpm config set store-dir .pnpm-store
+  script:
+    - pnpm i
+    - cd infra
+    - pnpm infra:diff
+    - pnpm infra:deploy -- --parameters bucketName=${BUCKET_NAME}
+
+deploy:main:
+  extends: .deploy
+  variables:
+    SOURCE: apps/main
+
+deploy:app1:
+  extends: .deploy
+  variables:
+    SOURCE: apps/app1
+
+deploy:app2:
+  extends: .deploy
+  variables:
+    SOURCE: apps/app2
+
+deploy:shared:
+  extends: .deploy
+  variables:
+    SOURCE: packages/shared

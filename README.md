@@ -33,6 +33,14 @@ Starter to bootstrap a web application, composite of React microfrontends and sh
 
 `pnpm lint` - to launch ESLint check for the whole app.
 
+### Deploy
+
+`pnpm infra:deploy` - to launch CDK and deploy the app (dist content) to AWS: S3 + CloudFront. Each stage (dev/stage/prod) ideally should have it own dedicated aws account (inside aws organization), so we can deploy the same stack (abd we won't have conflicts because of names).
+
+**NOTE**: prior to deploy any app/package/etc. you have to set up infra. First you need to run `deploy:infra` job (on gitlab), and only once you deployed the infra you can run `deploy:*` for apps/packages. Infrastructure is decoupled from the web app.
+
+For more information on available infra commands visit README in infra folder.
+
 **If you don't need e2e (playwright) - feel free just to delete the corresponding folders, and all references to it in npm script / turbo.json on top level**
 
 ## Tech stack
@@ -55,6 +63,7 @@ The app in general (and each separate sub-app in particular) are built on top of
 - [Jest](https://jestjs.io/docs/getting-started) (v29+)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) (v13+)
 - [Playwright](https://playwright.dev/) - for e2e tests
+- [AWS CDK](https://docs.aws.amazon.com/cdk/v2/guide/home.html) (v2) - IaC to deploy the built application(s) on AWS: CloudFront + S3
 - [ESLint](https://eslint.org/docs/latest/) + [Prettier](https://prettier.io/docs/en/index.html) + [lint-staged](https://github.com/okonet/lint-staged) + [husky](https://github.com/typicode/husky) - for code quality and better DevExperience
 - [PWA](https://web.dev/progressive-web-apps/) experience with the help of [workbox-webpack-plugin](https://github.com/googlechrome/workbox) (v6+) (which provides service worker) and `manifest.json` file - only for main app
 
@@ -66,6 +75,7 @@ The app in general (and each separate sub-app in particular) are built on top of
 - `packages/components`: package with shared components (buttons, fields, etc.), which are used by the apps
 - `packages/@config`: package with shared configs for the used tools (ts, eslint, webpack, babel, etc.)
 - `e2e`: Standalone application for e2e testing of the whole app. Powered by Playwright
+- `infra`: CDK application to provide AWS infrastructure-as-code for the app.
 
 ## App composition
 
@@ -94,5 +104,6 @@ Why particularly this tech stack? This is a brief overview/recap why this or tha
 15. React Testing Library - there is [enzyme](https://github.com/enzymejs/enzyme/), but it does testing in the old way, where you check props, attributes, etc. It is more unit-testing scale, and there is not real reason to do it for React components. RTL takes alternative, and I'd say better, approach - it examines component's behavior and appearance, and shifts testing more towards integration layer.
 16. ESLint + Prettier + lint-staged + husky - there are TSLint, ESHint and others - but only this gang of 4 made it through years and haven't been deprecated (because they, again, just do their job)
 17. Playwright - at initial look [Cypress](https://www.cypress.io/) seemed to be a tool to go with - it is battle-tested, mature and have big community. But still we should inspect alternatives just in case, and here we come by Playwright, which seems to take all good parts of cypress, and add broader browsers support (e.g. Safari), is TS-first, plus supports multiple languages (just in case), and (in my personal opinion) is even easier than cypress.
+18. AWS CDK - [Disclaimer: this is very opinionated section] the most advanced IaC solution for AWS. The main alternative - [Terraform](https://developer.hashicorp.com/terraform/docs) - has some advantages over CDK: it is cloud-agnostic and therefore is definitely a way to go if you want to do multi-cloud and just want to avoid vendor-lock. But, in our case, we completely commit to AWS and realize it. We are planning to deal with AWS only, and taking this constraint into account, CDK seems a better fit - it allows doing IaC in first-class programming language (in our case - TypeScript), while Terraform incorporates its own syntax - HCL, which is less flexible, and actually more competes with CloudFormation, rather than with CDK. TFCDK - CDK from Terraform world - is still not production-ready, though it actually can be considered as alternative in future. CDK just fills more natural to developers, where CDK app is actually kinda TS app. It is very subjective choice and there is no really a right answer, and a discussion between CDK vs Terraform and other tools (Pulumi, etc.) can take a lot of time and letters to type, so we just commit to CDK and build IaC with it.
 
 **Note on Storybook**: as project grows and becomes bigger, there will be need to document, demo and test its design system. It's worth take a look at [Storybook](https://storybook.js.org/) as a tool for this - it is quite a complex tool, have lots of addons and can be personalized per project's needs. It is not include in the starter, though may make sense for the project at bigger scale. It can be easily added as standalone app, which imports other components (from shared, etc.) and demos them.
