@@ -1,7 +1,7 @@
 import { Apps } from './enums';
 import { AppsModuleFederationConfig, AppModuleFederationConfig } from './types';
 
-const hostBaseUrl = process.env.HOST_BASE_URL || '';
+const hostBaseUrl = process.env.HOST_BASE_URL || '/';
 
 const appsModuleFederationConfig: AppsModuleFederationConfig = {
   [Apps.main]: {
